@@ -40,6 +40,7 @@ cele mai bune teme odoo
         'views/brand_page_template.xml',
         'views/product_rating.xml',
         'views/product_label_template.xml',
+        'views/snippets/custom_snippets.xml',
         'views/snippets/s_deal_of_the_day1.xml',
         'views/snippets/s_deal_of_the_day2.xml',
         'views/snippets/s_deal_of_the_day3.xml',

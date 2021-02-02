@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="website_extended_custom_snippets" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="after">
+            <div class="o_panel_header">
+                Custom Snippets
+            </div>
+            <div class="o_panel_body">
+                <t t-snippet="theme_alan.seminar_training"
+                   t-thumbnail="/website/static/src/img/snippets_thumbs/s_mega_menu_multi_menus.svg"/>
+                <t t-snippet="theme_alan.IhreAnsprechpartner"
+                   t-thumbnail="/website/static/src/img/snippets_thumbs/s_mega_menu_multi_menus.svg"/>
+                <t t-snippet="theme_alan.Seminare"
+                   t-thumbnail="/website/static/src/img/snippets_thumbs/s_mega_menu_multi_menus.svg"/>
+                <t t-snippet="theme_alan.ServicefürSie"
+                   t-thumbnail="/website/static/src/img/snippets_thumbs/s_mega_menu_multi_menus.svg"/>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="seminar_training" name="Seminar / Training">
+        <section class="seminar_training pt32 pb16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-black">
+                        <h6 class="font-weight-bold text-black">
+                            Seminar / Training 3CX Pro
+                        </h6>
+                        <h6 class="pb32 text-black">
+                            <span class="font-weight-bold">
+                                Installation und Übersicht 3CX
+                            </span>
+                            <span>
+                                – Grundlagen VOIP – Übersicht über die 3CX Telefonanlage – Installation und
+                                Ersteinrichtung – Gateways definieren – VOIP Provider – DID – Firewall Einstellungen
+                                –
+                                NAT und PAT? - Statische und dynamische IP Adressen
+                            </span>
+                        </h6>
+                        <h6 class="pb32 text-black">
+                            <span class="font-weight-bold">
+                                Administrationder 3CX Server
+                            </span>
+                            <span>
+                                – Richtlinien für die Telefonie erstellen (Outbound/Inbound) - Teilnehmer anlegen –
+                                Rufnummern zuweisen – Richtlinien für die Weiterleitung – Sicherung und
+                                Wiederherstellung -
+                                Updates und Servicepacks installieren
+                            </span>
+                        </h6>
+                        <h6 class="pb32 text-black">
+                            <span class="font-weight-bold">
+                                Monitoring und Troubleshooting
+                            </span>
+                            <span>
+                                – Firewall Tester – Interne / externe IP Adresse – Logfiles – 3CX und die
+                                Virtualisierung
+                            </span>
+                        </h6>
+                        <h6 class="pb32 text-black">
+                            <span class="font-weight-bold">
+                                Erweiterungen
+                            </span>
+                            <span>
+                                – Das Hotel Modul – Das Call Center Modul
+                            </span>
+                        </h6>
+                        <h6 class="pb8">
+                            <span class="font-weight-bold text-black">
+                                Voraussetzungen
+                            </span>
+                        </h6>
+                        <h6>
+                            <a href="#" class="internal-link" style="color: #5ba0e2;">
+                                Windowskenntnisse
+                            </a>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="IhreAnsprechpartner" name="Ansprechpartner">
+        <section class="IhreAnsprechpartner pt16 pb16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6 class="text-black font-weight-bold">
+                            Ihre Ansprechpartner
+                        </h6>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="/theme_alan/static/src/img/1.png" class="img"/>
+                                <h6 class="pt16 font-weight-bold">
+                                    <a href="#" class="internal-link" style="color: #5ba0e2;">Steve Etzkorn</a>
+                                </h6>
+                                <h6>
+                                    <span class="text-black">
+                                        E-Mail:
+                                        <span class="internal-link" style="color: #5ba0e2;">steve.etzkorn@scngmbh.com</span>
+                                    </span>
+                                </h6>
+                                <h6 class="text-black">
+                                    Telefon: +43 (0)720 115 154
+                                </h6>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="/theme_alan/static/src/img/11.png" class="img"/>
+                                <h6 class="pt16 font-weight-bold">
+                                    <a href="#" class="internal-link" style="color: #5ba0e2;">Christian Klein</a>
+                                </h6>
+                                <h6>
+                                    <span class="text-black">
+                                        E-Mail:
+                                        <span class="internal-link" style="color: #5ba0e2;">christian.klein@scngmbh.com</span>
+                                    </span>
+                                </h6>
+                                <h6 class="text-black">
+                                    Telefon: +43 (720) 116 176
+                                </h6>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="/theme_alan/static/src/img/111.png" class="img"/>
+                                <h6 class="pt16 font-weight-bold">
+                                    <a href="#" class="internal-link" style="color: #5ba0e2;">Victor Poor</a>
+                                </h6>
+                                <h6>
+                                    <span class="text-black">
+                                        E-Mail:
+                                        <span class="internal-link" style="color: #5ba0e2;">victor.poor@scngmbh.com</span>
+                                    </span>
+                                </h6>
+                                <h6 class="text-black">
+                                    Telefon: +43 (720) 116 263
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="Seminare" name="Seminare?">
+        <section class="Seminare pt16 pb16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6 class="text-black pb8 font-weight-bold">
+                            Was unterscheidet unsere Seminare?
+                        </h6>
+                        <h6 class="pb8 text-black" style="line-height: 1.7;">
+                            Wir bieten Ihnen Seminare mit einem hohen Praxisbezug an. Die Inhalte und Übungen sind auf
+                            Ihre täglichen Aufgaben im Unternehmen ausgerichtet und verzichten vollständig auf
+                            Werbehinweise anderer Produkte des Softwareherstellers.
+                        </h6>
+                        <h6 class="pb8 text-black" style="line-height: 1.7;">
+                            Alle Trainings bei uns sind herstellerunabhängig. Dies ermöglicht es uns kritische
+                            Betrachtungen zu den Produkten selbst und Vergleiche zu Wettbewerbern des Herstellers im
+                            Seminar anzubieten. Die Kursinhalte sind eigene Inhalte und aus den praktischen Erfahrungen
+                            unserer Trainer in Projekten abgeleitet.
+                        </h6>
+                        <h6 class="pb8 text-black" style="line-height: 1.7;">
+                            Selbstverständlich können die Inhalte bei Firmenseminaren individuell an Ihre Bedürfnisse
+                            angepasst werden. Bitte sprechen Sie uns einfach an.
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="ServicefürSie" name="Service für Sie!">
+        <section class="ServicefürSie">
+            <div class="container pt16 pb16">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6 class="text-black pb8 font-weight-bold">
+                            Service für Sie!
+                        </h6>
+                        <ul>
+                            <li>
+                                <a href="#" style="color: #5ba0e2;" class="internal-link">Durchführungsgarantie</a>
+                                - Durchführungsgarantie ab zwei Teilnehmern
+                            </li>
+                            <li>
+                                <a href="#" style="color: #5ba0e2;" class="internal-link">Mobile Klassenräume</a>
+                                - die ideale Ergänzung bei Firmenseminaren
+                            </li>
+                            <li>
+                                <a href="#" style="color: #5ba0e2;" class="internal-link">Kostenfreier Support </a>
+                                - für Fragen nach Seminarende
+                            </li>
+                            <li>
+                                <a href="#" style="color: #5ba0e2;" class="internal-link">Lieferung auf Rechnung</a>
+                                - keine Vorkasse erforderlich
+                            </li>
+                            <li>
+                                <a href="#" style="color: #5ba0e2;" class="internal-link">Gespräch mit dem Trainer / Qualitätssicherung</a>
+                                - lernen Sie den Trainer vorab kennen und einschätzen
+                            </li>
+                            <li>
+                                <a href="#" style="color: #5ba0e2;" class="internal-link">Klären der Seminarvorrausetzungen</a>
+                                - sprechen Sie Ihre Kenntnisse mit dem Trainer durch
+                            </li>
+                            <li>
+                                <a href="#" style="color: #5ba0e2;" class="internal-link">Keine Reisespesen bei Firmenseminaren</a>
+                                - wir berechnen keine Reisespesen
+                            </li>
+                            <li>
+                                <a href="#" style="color: #5ba0e2;" class="internal-link">Unterstützung bei den Reisekosten</a>
+                                - bei Hotelübernachtungen übernehmen wir einen Teil der Kosten
+                            </li>
+                            <li>
+                                <a href="#" style="color: #5ba0e2;" class="internal-link">Verpflegung</a>
+                                - ganztägig Kalt- / Warmgetränke und ein vollwertiges Mittagessen im Restaurant
+                            </li>
+                            <li>
+                                <a href="#" style="color: #5ba0e2;" class="internal-link">Lage der Schulungszentren</a>
+                                - immer zentral gelegen und sehr gut erreichbar
+                            </li>
+                            <li>
+                                <a href="#" style="color: #5ba0e2;" class="internal-link">Rabatt</a>
+                                - wir haben attraktive Preise, profitieren Sie zustätzlich von unseren Rabatten
+                            </li>
+                            <li>
+                                <a href="#" style="color: #5ba0e2;" class="internal-link">Remotelabs</a>
+                                - Mieten Sie unsere Remotelabs für eigene Seminare oder als Ergänzung zu Ihren Firmenseminaren
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

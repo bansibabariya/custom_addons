@@ -3,12 +3,23 @@
     padding-bottom: 0 !important;
     text-align: left !important;
 }
+.internal-link:hover{
+    color:black !important;
+}
+.ServicefürSie{
+    ul{
+        padding-left: 15px !important;
+    }
+    li{
+        padding-bottom: 4px;
+    }
+}
 
 @media (min-width: 992px)
 {
-header .navbar .dropdown-menu {
-    max-height: 100vh !important;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
+    header .navbar .dropdown-menu {
+        max-height: 100vh !important;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
 }

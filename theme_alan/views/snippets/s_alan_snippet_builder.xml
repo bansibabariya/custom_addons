@@ -2,7 +2,7 @@
 <odoo>
      <template id="website_snippet_builder" name="Alan Snippet Builder">
         <section class="alan_snippet_builder">
-            Alan Snippet Builder
+<!--            Alan Snippet Builder-->
         </section>
     </template>
 
