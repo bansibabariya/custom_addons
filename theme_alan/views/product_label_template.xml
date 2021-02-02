@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Product Page Product Label -->
+    <template id="as_product_page_label" inherit_id="website_sale.product" priority="23">
+        <xpath expr="//div[@id='product_details']/h1" position="before">
+            <t t-if="request.website.viewref('theme_alan.as_shop_product_label').active">
+                <t t-if="product.pro_label_line_ids">
+                    <t t-foreach="product.pro_label_line_ids" t-as="rec">
+                        <t t-if="rec.website_id.id == website.id">
+                            <div class="as-ribbon-tag">
+                                <span t-attf-style="background-color:#{rec.label.label_color};color:#{rec.label.label_text_color}"> <i class="fa fa-tag"></i> <t t-esc="rec.label.name" /></span>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </xpath>
+    </template>
+    <!-- Shop Page Product Label -->
+    <template id="as_shop_product_label" name="Product Label" inherit_id="website_sale.products_item" customize_show="True" active="True" priority="23">
+        <xpath expr="//div[hasclass('oe_product_image')]" position="inside">
+            <t t-if="product.pro_label_line_ids">
+                <t t-as="labels" t-foreach="product.pro_label_line_ids">
+                    <t t-if="labels.website_id.id == website.id">
+                        <t t-call="theme_alan.as_label_layout"/>
+                    </t>
+                </t>
+            </t>
+        </xpath>
+    </template>
+    <!-- Product Label Layouts -->
+    <template id="as_label_layout">
+        <div class="as-ribbon-wrpa">
+            <div class="ribbon-style-1" t-att-id="labels.label.label_option" t-if="labels.label.label_option == 'option_1'">
+                <span t-attf-style="background-color:#{labels.label.label_color}; color:#{labels.label.label_text_color}" t-field="labels.label.name"/>
+            </div>
+
+            <div class="ribbon-style-2" t-att-id="labels.label.label_option" t-attf-style="background-color:#{labels.label.label_color}" t-if="labels.label.label_option == 'option_2'">
+                <span t-attf-style="background-color:#{labels.label.label_color}; color:#{labels.label.label_text_color}" t-field="labels.label.name"/>
+            </div>
+
+            <div class="ribbon-style-3" t-att-id="labels.label.label_option" t-attf-style="color:#{labels.label.label_color}" t-if="labels.label.label_option == 'option_3'">
+                <span t-attf-style="background-color:#{labels.label.label_color}; color:#{labels.label.label_text_color}" t-field="labels.label.name"/>
+            </div>
+
+            <div class="ribbon-style-4" t-att-id="labels.label.label_option" t-if="labels.label.label_option == 'option_4'">
+                <span t-attf-style="background-color:#{labels.label.label_color} ; color:#{labels.label.label_text_color}" t-field="labels.label.name"/>
+            </div>
+            <div class="ribbon-style-5" t-att-id="labels.label.label_option" t-if="labels.label.label_option == 'option_5'">
+                <span t-attf-style="background-color:#{labels.label.label_color} ; color:#{labels.label.label_text_color}"><i class="fa fa-tag"/> <t t-esc="labels.label.name" /></span>
+            </div>
+        </div>
+    </template>
+</odoo>

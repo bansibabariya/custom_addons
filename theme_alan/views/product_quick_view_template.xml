@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="add_cover_quickview" inherit_id="website.layout" active="True">
+        <xpath expr="//div[@id='wrapwrap']" position="after">
+            <div class="quick_cover"/>
+        </xpath>
+    </template>
+    <template id="quick_view" name="Quick View" inherit_id="website_sale.products_item">
+        <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside">
+            <a class="btn o_quick_view" t-att-data-product-product-id="product.product_variant_ids[0].id" t-att-data-product_template_id="product.id" title="Quick View" type="button">
+                <span class="fa fa-eye"/>
+            </a>
+        </xpath>
+    </template>
+    <template id="get_product_qv_details_template" name="Get Product Quick View Details" inherit_id="atharva_theme_base.as_product_quick_view_holder">
+        <xpath expr="//div[hasclass('as_quick_view_detail')]" position="inside">
+            <t t-if="product">
+                <t t-set="combination" t-value="product._get_first_possible_combination()"/>
+                <t t-set="combination_info" t-value="product._get_combination_info(combination, add_qty=add_qty or 1, pricelist=pricelist)"/>
+                <t t-set="product_variant" t-value="product.env['product.product'].browse(combination_info['product_id'])"/>
+                <div class="quick-wrap">
+                    <button class="qv_close">
+                        <span/>
+                    </button>
+                    <div class="js_sale quick-wrap-in" itemscope="itemscope" itemtype="http://schema.org/Product">
+                        <div class="container oe_website_sale" id="product_detail">
+                            <div class="row">
+                                <div class="col-md-6 col-xl-7 as-product-photos">
+                                    <!-- Product Slider -->
+                                    <div class="product-img-box">
+                                        <t t-set="product_images" t-value="product_variant._get_images() if product_variant else product._get_images()"/>
+                                        <div class="carousel slide" data-interval="0" data-ride="carousel" id="o-carousel-product">
+                                            <div class="carousel-outer position-relative">
+                                                <div class="carousel-inner h-100">
+                                                    <t t-as="product_image" t-foreach="product_images">
+                                                        <div t-attf-class="carousel-item h-100#{' active' if product_image_first else ''}">
+                                                            <div class="d-flex align-items-center justify-content-center h-100 embed-responsive embed-responsive-16by9" t-if="product_image._name == 'product.image' and product_image.embed_code">
+                                                                <t t-raw="product_image.embed_code"/>
+                                                            </div>
+                                                            <div class="d-flex align-items-center justify-content-center h-100" t-else="" t-field="product_image.image_1920" t-options="{&quot;widget&quot;: &quot;image&quot;, &quot;preview_image&quot;: &quot;image_1024&quot;, &quot;class&quot;: &quot;product_detail_img mh-100&quot;, &quot;alt-field&quot;: &quot;name&quot;, &quot;zoom&quot;: product_image.can_image_1024_be_zoomed and &quot;image_1920&quot;}"/>
+                                                        </div>
+                                                    </t>
+                                                </div>
+                                                <t t-if="len(product_images) &gt;1">
+                                                    <a class="carousel-control-prev" data-slide="prev" href="#o-carousel-product" role="button">
+                                                        <span aria-label="Previous" class="ti-angle-left" role="img" title="Previous"/>
+                                                    </a>
+                                                    <a class="carousel-control-next" data-slide="next" href="#o-carousel-product" role="button">
+                                                        <span aria-label="Next" class="ti-angle-right" role="img" title="Next"/>
+                                                    </a>
+                                                </t>
+                                                <div class="thumb-slide-box d-none d-md-block text-center" t-ignore="True">
+                                                    <div class="thumbnails-slides" t-if="len(product_images) &gt;1">
+                                                        <t t-as="product_image" t-foreach="product_images">
+                                                            <div>
+                                                                <div data-target="#o-carousel-product" t-att-data-slide-to="str(product_image_index)" t-attf-class="{{'active' if product_image_first else ''}}" t-field="product_image.image_128" t-options="{&quot;widget&quot;: &quot;image&quot;, &quot;qweb_img_responsive&quot;: False, &quot;class&quot;: &quot;o_image_64_contain&quot;, &quot;alt-field&quot;: &quot;name&quot;}"/>
+                                                                <i class="fa fa-play o_product_video_thumb" t-if="product_image._name == 'product.image' and product_image.embed_code"/>
+                                                            </div>
+                                                        </t>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End -->
+                                </div>
+                                <div class="col-md-6 col-xl-5" id="product_details">
+                                    <t t-if="request.website.viewref('theme_alan.as_shop_product_label').active">
+                                        <t t-if="product.pro_label_line_ids">
+                                            <t t-foreach="product.pro_label_line_ids" t-as="rec">
+                                                <t t-if="rec.website_id.id == website.id">
+                                                    <div class="as-ribbon-tag">
+                                                        <span t-attf-style="background-color:#{rec.label.label_color};color:#{rec.label.label_text_color}"> <i class="fa fa-tag"></i> <t t-esc="rec.label.name" /></span>
+                                                    </div>
+                                                </t>
+                                            </t>
+                                        </t>
+                                    </t>
+                                    <!-- Product Description -->
+                                    <h1 itemprop="name" t-field="product.name">Product Name</h1>
+                                    <span itemprop="url" style="display:none;" t-esc="product.website_url"/>
+                                    <form action="/shop/cart/update" method="POST" t-if="product._is_add_to_cart_possible()">
+                                        <input name="csrf_token" t-att-value="request.csrf_token()" type="hidden"/>
+                                        <div class="js_product js_main_product">
+                                            <div class="pro-desc" t-if="product.description_sale">
+                                                <p t-field="product.description_sale"/>
+                                            </div>
+                                            <t t-placeholder="select">
+                                                <input class="product_id" name="product_id" t-att-value="product_variant.id" type="hidden"/>
+                                                <input class="product_template_id" name="product_template_id" t-att-value="product.id" type="hidden"/>
+                                                <t t-call="sale.variants" t-if="combination">
+                                                    <t t-set="ul_class" t-value="'flex-column'"/>
+                                                    <t t-set="parent_combination" t-value="None"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <ul class="d-none js_add_cart_variants" t-att-data-attribute_exclusions="{'exclusions: []'}"/>
+                                                </t>
+                                            </t>
+                                            <t t-call="website_sale.product_price"/>
+                                            <p class="css_not_available_msg alert alert-warning" t-if="True">This combination does not exist.</p>
+                                            <div class="css_quantity input-group" contenteditable="false">
+                                                <div class="input-group-prepend">
+                                                    <a aria-label="Remove one" class="btn btn-secondary js_add_cart_json" t-attf-href="#" title="Remove one">
+                                                        <i class="fa fa-minus"/>
+                                                    </a>
+                                                </div>
+                                                <input class="form-control quantity" data-min="1" name="add_qty" t-att-value="add_qty or 1" type="text"/>
+                                                <div class="input-group-append">
+                                                    <a aria-label="Add one" class="btn btn-secondary float_left js_add_cart_json" t-attf-href="#" title="Add one">
+                                                        <i class="fa fa-plus"/>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <a class="as-btn btn btn-primary btn-lg mt16 js_check_product a-submit d-block d-sm-inline-block" href="#" id="add_to_cart" role="button">
+                                                <i class="fa fa-shopping-cart"/>Add to Cart</a>
+                                        </div>
+                                    </form>
+                                    <p class="alert alert-warning" t-elif="not product.active">This product is no longer available.</p>
+                                    <p class="alert alert-warning" t-else="">This product has no valid combination.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+            <t t-if="error">
+                <div class="quick-cover-overlay"/>
+                <div class="quick-wrap">
+                    <div class="quick-wrap-in">
+                        <button class="qv_close">
+                            <span/>
+                        </button>
+                        <div class="alert alert-warning m-4" t-esc="error"/>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>

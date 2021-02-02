@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="as_product_quick_view_holder" name="Quick View Holder">
+        <div class="as_quick_view_detail"/>
+    </template>
+    <template id="as_dynamic_faq_container" name="Dynamic FAQ Holder">
+        <section class="as_dynamic_faq_content"/>
+    </template>
+    <template id="as_product_brands" name="Product Brand">
+        <section class="as_product_brands"/>
+    </template>
+    <template id="as_html_content_tabs" name="Product Tabs">
+        <section class="product-details-tabs">
+            <div class="container">
+                <!-- Tab Nav -->
+                <ul id="as_product_tabs" class="nav nav-tabs" role="tablist">
+                    <li class="nav-item"
+                        t-if="product.website_description or request.env.user._is_admin()">
+                        <a class="nav-link  active show"
+                           id="nav_tabs_link_1"
+                           data-toggle="tab"
+                           itemprop="description"
+                           href="#nav_tabs_content_1"
+                           role="tab"
+                           aria-controls="nav_tabs_content_1"
+                           aria-selected="true">Description
+                        </a>
+                    </li>
+                    <t t-if="request.website.viewref('website_sale_comparison.product_attributes_body').active">
+                    <t t-set="categories"
+                       t-value="product.valid_product_template_attribute_line_ids._prepare_categories_for_display()"/>
+                    <t t-if="categories">
+                        <li class="nav-item specification_products_tab">
+                            <a class="nav-link"
+                               id="nav_tabs_link_2"
+                               data-toggle="tab"
+                               href="#nav_tabs_content_2"
+                               role="tab"
+                               aria-controls="nav_tabs_content_2"
+                               aria-selected="false">Specification
+                            </a>
+                        </li>
+                    </t>
+                    </t>
+                    <t t-if="request.website.viewref('website_sale.product_comment').active">
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               id="nav_tabs_link_3"
+                               data-toggle="tab"
+                               href="#nav_tabs_content_3"
+                               role="tab"
+                               aria-controls="nav_tabs_content_3"
+                               aria-selected="false">Reviews
+                            </a>
+                        </li>
+                    </t>
+                    <t t-foreach="product.pro_tab_ids" t-as="tab">
+                        <t t-if="request.env['product.tab.line'].getTab(website.id,tab.website_ids.ids)">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   t-att-id="'nav_tabs_link_%s_%s' % (product.id, tab.id)"
+                                   data-toggle="tab"
+                                   t-att-href="'#nav_tabs_content_%s_%s' % (product.id, tab.id)"
+                                   role="tab"
+                                   t-att-aria-controls="'nav_tabs_content_%s_%s' % (product.id, tab.id)"
+                                   aria-selected="false">
+                                    <div t-field="tab.tab_name"
+                                         class="oe_structure"/>
+                                </a>
+                            </li>
+                        </t>
+                    </t>
+                </ul>
+
+                <!-- End Tab Nav -->
+                <!-- Tab Content -->
+                <div class="tab-content">
+                    <div class="tab-pane fade show active"
+                         id="nav_tabs_content_1"
+                         role="tabpanel"
+                         aria-labelledby="nav_tabs_link_1">
+                        <div itemprop="description" t-field="product.website_description"
+                             class="oe_structure"
+                             id="product_full_description"/>
+                    </div>
+                    <div class="tab-pane fade"
+                         id="nav_tabs_content_2"
+                         role="tabpanel"
+                         aria-labelledby="nav_tabs_link_2">
+                        <div class="product-specifications" id="product_full_spec">
+                            <t t-set="categories"
+                               t-value="product.valid_product_template_attribute_line_ids._prepare_categories_for_display()"/>
+                            <t t-if="categories">
+                                <h3 class="text-center mb32">Specifications for
+                                    <t t-esc="product.name"/>
+                                </h3>
+                                <div class="row">
+                                    <div class='col-lg-12' id='product_specifications'>
+                                        <table class='table table-striped table-sm table-hover'>
+                                            <t t-foreach="categories" t-as="category">
+                                                <t t-if="len(categories) > 1">
+                                                    <tr class="clickable" data-toggle="collapse"
+                                                        t-att-data-target="'.o_ws_category_%d' % category.id">
+                                                        <th class="text-left" t-att-colspan="2">
+                                                            <span t-if="category" t-field="category.name"/>
+                                                            <span t-else="">Uncategorized</span>
+                                                        </th>
+                                                    </tr>
+                                                </t>
+                                                <tr t-foreach="categories[category].filtered(lambda l: len(l.value_ids) > 1)"
+                                                    t-as="ptal"
+                                                    t-att-class="'collapse show o_ws_category_%d' % category.id">
+                                                    <td>
+                                                        <span t-field="ptal.attribute_id.name"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-foreach="ptal.value_ids" t-as="pav">
+                                                            <span t-field="pav.name"/>
+                                                            <t t-if="not pav_last">or</t>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                                <t t-set="single_value_attributes"
+                                                   t-value="categories[category]._prepare_single_value_for_display()"/>
+                                                <tr t-foreach="single_value_attributes" t-as="attribute"
+                                                    t-att-class="'collapse show o_ws_category_%d' % category.id">
+                                                    <td>
+                                                        <span t-field="attribute.name"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-foreach="single_value_attributes[attribute]"
+                                                           t-as="ptal">
+                                                            <span t-field="ptal.product_template_value_ids._only_active().name"/>
+                                                            <t t-if="not ptal_last">,</t>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </table>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                    <t t-if="request.website.viewref('website_sale.product_comment').active">
+                        <div class="tab-pane fade o_not_editable"
+                             id="nav_tabs_content_3"
+                             role="tabpanel"
+                             aria-labelledby="nav_tabs_link_3">
+                            <div class="o_shop_discussion_rating oe_overlay_options o_not_editable">
+                                <t t-call="portal.message_thread">
+                                    <t t-set="object" t-value="product"/>
+                                    <t t-set="display_rating" t-value="True"/>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                    <t t-foreach="product.pro_tab_ids" t-as="tab">
+                        <t t-if="request.env['product.tab.line'].getTab(website.id,tab.website_ids.ids)">
+                            <div class="tab-pane fade"
+                                 t-att-id="'nav_tabs_content_%s_%s' % (product.id, tab.id)"
+                                 role="tabpanel"
+                                 t-att-aria-labelledby="'nav_tabs_link_%s_%s' % (product.id, tab.id)">
+                                <div t-field="tab.tab_content"
+                                     class="oe_structure"/>
+                            </div>
+                        </t>
+                    </t>
+                </div>
+                <!-- End Tab Content -->
+            </div>
+        </section>
+    </template>
+
+    <template id="service_page" name="Service">
+        <t t-call="website.layout">
+            <div class="container" style="min-height: 500px;">
+                <div class="row pt40">
+                    <div class="col-md-12">
+                        <h1 class="text-black">
+                            <t t-esc="service.name"/>
+                        </h1>
+                    </div>
+                </div>
+                <div class="row pt24">
+                    <div class="col-md-12">
+                        <h1>
+                            <span t-field="service.description"/>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

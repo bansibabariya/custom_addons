@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_frontend" name="Frontend Asset Atharva Base" inherit_id="website.assets_frontend">
+        <xpath expr="link[last()]" position="after">
+            <link href="/atharva_theme_base/static/lib/css/owl.carousel.min.css" rel="stylesheet"/>
+            <link rel="stylesheet" type="text/scss" href="/atharva_theme_base/static/src/scss/quick_cart.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/atharva_theme_base/static/src/scss/product_sticker.scss" />
+        </xpath>
+        <xpath expr="script[last()]" position="after">
+            <script src="/atharva_theme_base/static/lib/js/owl.carousel.js" type="text/javascript"/>
+            <script type="text/javascript" src="/atharva_theme_base/static/src/js/quick_view.js"></script>
+            <script type="text/javascript" src="/atharva_theme_base/static/src/js/quick_cart.js"></script>
+            <script type="text/javascript" src="/atharva_theme_base/static/src/js/quick_load_product.js"/>
+            <script type="text/javascript" src="/atharva_theme_base/static/src/js/header_menu_extend.js"/>
+            <script type="text/javascript" src="/atharva_theme_base/static/lib/js/custom_slider.js" />
+        </xpath>
+    </template>
+    <template id="compiled_assets_wysiwyg" name="Front assets" inherit_id="website.compiled_assets_wysiwyg">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/atharva_theme_base/static/src/snippets/s_blog_slider/options.js"/>
+        </xpath>
+    </template>
+    <template id="theme_alan_multiselect_lib" inherit_id="website.assets_editor">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/atharva_theme_base/static/lib/js/bootstrap-multiselect.js" />
+            <link rel="stylesheet" href="/atharva_theme_base/static/lib/css/bootstrap-multiselect.css"/>
+        </xpath>
+    </template>
+</odoo>

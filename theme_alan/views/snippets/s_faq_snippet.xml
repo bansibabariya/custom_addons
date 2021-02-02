@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="as_dynamic_faq_snippet" name="Dynamic FAQ Content" inherit_id="atharva_theme_base.as_dynamic_faq_container">
+        <xpath expr="//section[hasclass('as_dynamic_faq_content')]" position="inside">
+            <t t-call="theme_alan.dynamic_faq_snippet"/>
+        </xpath>
+    </template>
+
+    <template id="assets_dynamic_faq_snippet_000" inherit_id="website.assets_frontend">
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/atharva_theme_base/static/src/snippets/s_faq_snippet/000.js"/>
+        </xpath>
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/atharva_theme_base/static/src/snippets/s_faq_snippet/000.scss"/>
+        </xpath>
+    </template>
+</odoo>

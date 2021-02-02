@@ -1,0 +1,34 @@
+.as-btn {
+    font-size: 13px;
+    border: 2px solid;
+    padding: 10px 25px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none !important;
+    box-shadow: none;
+    outline: none;
+    display: inline-block;
+    @include transition(cubic-bezier(0.4, 0, 1, 1) all 0.35s); 
+    line-height: 1.5;
+    border-radius: 50px;
+    color: $as-white;
+    background-image: linear-gradient(to right, $as-theme 0%, $as-theme  51%, darken($as-theme, 10%)  100%);
+    background-size: 200% auto;
+    &:not(:disabled),
+    &:not(.disabled) {
+        &:hover {
+            box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.26);
+            color: $as-white;
+            background-position: right center;
+        }
+    }
+
+    &.btn-lg {
+        padding: 12px 35px;
+        font-size: 13px;
+    }
+    &.btn-sm {
+        padding: 5px 20px;
+        font-size: 13px;
+    }
+}

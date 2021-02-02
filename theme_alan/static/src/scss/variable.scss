@@ -1,0 +1,56 @@
+$as-theme:  		theme-color('primary');
+$as-body:			  $body-color !default;
+
+$header-color:		color('menu') !default;
+$footer-color:		color('footer') !default;
+
+$as-black:            	#000 !default;
+$as-dark:	          	#343a40 !default;
+$as-white:            	#fff !default;
+
+
+$as-blue:						#2568ef !default;
+$as-green:						#28a745 !default;
+$as-yellow:						#ffc107 !default;
+$as-red:						#dc3545 !default;
+$as-pink:						#f12699 !default;
+
+/*$as-gray-1:				#878787 !default;
+$as-gray-2:				#bababa !default;
+$as-gray-3:				#dedede !default;
+$as-gray-4:				#ededed !default;
+$as-gray-5:				#f4f3f8 !default;*/
+
+
+//Breakpoin
+$as-media-sm:           575px !default;
+$as-media-md:           767px !default;
+$as-media-lg:           991px !default;
+$as-media-xl:           1199px !default;
+
+
+// Yiq
+$as-yiq-dark-text:		$as-black !default;
+$as-yiq-light-text:		$as-white !default;
+$as-yiq-contrasted-threshold:	150 !default;
+
+
+$container:				1420px !default;
+
+
+// color map
+$theme-colors: ();
+$theme-colors: map-merge(
+  (
+    "theme":    $as-theme,
+    "white":  	$as-white,
+    "black":  	$as-black,
+    "dark":  	$as-dark,
+    "blue":     $as-blue,
+    "green":    $as-green,
+    "yellow":   $as-yellow,
+    "red":      $as-red,
+    "pink":     $as-pink,
+  ),
+  $theme-colors
+);

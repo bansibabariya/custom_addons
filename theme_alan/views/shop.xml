@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Product image size -->
+    <template id="as_products_item" inherit_id="website_sale.products_item">
+        <xpath expr="//a[@t-att-href='product_href']" position="replace">
+            <a class="d-block h-100" itemprop="url" t-att-href="product_href">
+                <span class="d-flex h-100 justify-content-center align-items-center" t-field="product.image_512" t-options="{'widget': 'image', 'preview_image': 'image_1024' if product_image_big else 'image_512'}"/>
+            </a>
+        </xpath>
+    </template>
+
+    <!-- Default Pricelist hide -->
+    <template id="products_alan" inherit_id="website_sale.products">
+        <xpath expr="//div[hasclass('products_pager')][1]/t[@t-call='website_sale.pricelist_list']" position="replace"/>
+    </template>
+
+    <!-- Product Listing -->
+    <template id="products_listing_as" inherit_id="website_sale.products">
+        <!-- Attributes sidebar show -->
+        <xpath expr="//div[hasclass('products_pager')][1]" position="inside">
+            <t t-if="(request.website.viewref('website_sale.products_categories').active) or (request.website.viewref('website_sale.products_attributes').active)">
+                <div class="as-aside-filter">
+                    <button class="as_aside_filter_open">
+                        <i class="icon"/>
+                        <span>Filters</span>
+                    </button>
+                </div>
+            </t>
+        </xpath>
+        <!-- Attributes sidebar Hide -->
+        <xpath expr="//div[hasclass('products_pager')][1]" position="after">
+            <div class="as-aside-filter-close">
+                <button class="as_aside_filter_close">
+                    <i class="icon"/>
+                    <span>Filter</span>
+                </button>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="products_categories_alan" inherit_id="website_sale.products_categories" name="e-Commerce Categories">
+        <xpath expr="//div[@id='wsale_products_categories_collapse']/ul[hasclass('flex-column')]" position="before">
+            <div class="as-category-title">
+                <span>Product Category</span>
+                <i class="icon"/>
+            </div>
+        </xpath>
+    </template>
+    <!-- Product Attributes -->
+    <template id="products_attributes_as" inherit_id="website_sale.products_attributes">
+        <xpath expr="//ul/t/li[hasclass('nav-item')]" position="replace">
+            <li class="nav-item" t-if="a.value_ids and len(a.value_ids) &gt; 1">
+                <t t-set="attr_section_open" t-value="False"/>
+                <t t-as="v" t-foreach="a.value_ids">
+                    <t t-if="v.id in attrib_set">
+                        <t t-set="attr_section_open" t-value="True"/>
+                    </t>
+                </t>
+                <div class="as_attribute_name as-collapse-widget">
+                    <span t-field="a.name"/>
+                    <i class="icon"/>
+                    <t t-if="attr_section_open">
+                        <span class="clear_filter as_clear_variant" t-att-data-attr_id="a.id">
+                            <i class="fa fa-times"/>
+                            <span>Clear</span>
+                        </span>
+                    </t>
+                </div>
+                <t t-if="a.display_type == 'select'">
+                    <select name="attrib" t-attf-class="form-control nav nav-pills flex-column #{'as_f_open' if attr_section_open else 'as_f_close'}">
+                        <option value=""/>
+                        <t t-as="v" t-foreach="a.value_ids">
+                            <option t-att-selected="v.id in attrib_set" t-att-value="'%s-%s' % (a.id,v.id)" t-esc="v.name"/>
+                        </t>
+                    </select>
+                </t>
+                <t t-if="a.display_type == 'radio'">
+                    <ul t-attf-class="nav nav-pills flex-column #{'as_f_open' if attr_section_open else 'as_f_close'}">
+                        <t t-as="v" t-foreach="a.value_ids">
+                            <li class="nav-item">
+                                <label style="margin: 0 20px;" t-attf-class="nav-link#{' active' if v.id in attrib_set else ''}">
+                                    <input name="attrib" t-att-checked="'checked' if v.id in attrib_set else None" t-att-value="'%s-%s' % (a.id,v.id)" type="checkbox"/>
+                                    <span style="font-weight: normal" t-field="v.name"/>
+                                </label>
+                            </li>
+                        </t>
+                    </ul>
+                </t>
+                <t t-if="a.display_type == 'color'">
+                    <ul t-attf-class="nav nav-pills flex-column #{'as_f_open' if attr_section_open else 'as_f_close'}">
+                        <t t-as="v" t-foreach="a.value_ids">
+                            <li class="nav-item">
+                                <label t-attf-class="css_attribute_color #{'active' if v.id in attrib_set else ''}" t-attf-style="background-color:#{ v.name}">
+                                    <input name="attrib" t-att-checked="'checked' if v.id in attrib_set else None" t-att-title="v.name" t-att-value="'%s-%s' % (a.id,v.id)" type="checkbox"/>
+                                </label>
+                                <span t-esc="v.name"/>
+                            </li>
+                        </t>
+                    </ul>
+                </t>
+            </li>
+        </xpath>
+        <xpath expr="//form/ul" position="inside">
+            <!-- Brand Filter Start -->
+            <t t-if="brands">
+                <t t-set="attr_section_open" t-value="False"/>
+                <t t-as="brand" t-foreach="brands">
+                    <t t-if="brand.id in brand_set">
+                        <t t-set="attr_section_open" t-value="True"/>
+                    </t>
+                </t>
+                <li class="nav-item">
+                    <div id="brand_name">
+                        <div class="as_attribute_name as-collapse-widget">
+                            <span>Brand</span>
+                            <i class="icon"/>
+                            <t t-if="attr_section_open">
+                                <span class="clear_filter as_clear_variant">
+                                    <i class="fa fa-times"/>
+                                    <span>Clear</span>
+                                </span>
+                            </t>
+                        </div>
+                    </div>
+                    <ul t-attf-class="nav nav-pills flex-column pro_brand #{'as_f_open' if attr_section_open else 'as_f_close'}">
+                        <t t-as="brand" t-foreach="brands">
+                            <li class="nav-item">
+                                <label style="margin: 0 20px;" t-attf-class="nav-link#{' active' if brand.id in brand_set else ''}">
+                                    <input name="brand" t-att-checked="'checked' if brand.id in brand_set else None" t-att-value="'%s-%s' % (brand.name,brand.id)" type="checkbox"/>
+                                    <span style="font-weight: normal" t-field="brand.name"/>
+                                </label>
+                            </li>
+                        </t>
+                    </ul>
+                </li>
+            </t>
+            <!-- Brand Filter END -->
+        </xpath>
+    </template>
+
+    <template id="pricefilter_product" name="Price Filter" inherit_id="website_sale.products_attributes">
+        <xpath expr="//form[hasclass('js_attributes')]" position="after">
+            <div class="slider-price-filter">
+                <div class="div_class_price_filter_heading spf-title">
+                    <span class="refined-by-attr">Price</span>
+                </div>
+                <div class="form_class price_filter_main spf-box">
+                    <div data-role="rangeslider">
+                        <t t-set="custom_min_val" t-value="custom_min_val or min_val"/>
+                        <t t-set="custom_max_val" t-value="custom_max_val or max_val"/>
+                        <div id="slider-range">
+                            <input class="span2" data-provide="slider" data-slider-step="1" id="price_filter_input" name="price_filter" t-att-data-slider-max="ceil(max_val)" t-att-data-slider-min="floor(min_val)" t-att-data-slider-value="[custom_min_val,custom_max_val]" t-att-data-value="custom_min_val,custom_max_val" type="text" value=""/>
+                        </div>
+                        <div class="spf-action" id="priceform">
+                            <div class="price_filter_details">
+                                <span class="text_min_val" t-esc="round(custom_min_val)"/>
+                                <span>&amp;nbsp;-&amp;nbsp;</span>
+                                <span class="text_max_val" t-esc="round(custom_max_val)"/>
+                            </div>
+                            <button class="apply_price_filter">Apply</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//form[hasclass('js_attributes')]" position="inside">
+            <input id="min_val" name="min_val" t-att-value="custom_min_val" type="hidden"/>
+            <input id="max_val" name="max_val" t-att-value="custom_max_val" type="hidden"/>
+        </xpath>
+    </template>
+
+    <!-- Buttons -->
+    <template id="as_product_buy_now" inherit_id="website_sale.product_buy_now">
+        <xpath expr="//a[@id='buy_now']" position="attributes">
+            <attribute name="class" separator=" " add="as-btn as-btn-dark"/>
+        </xpath>
+    </template>
+
+    <template id="as_cart" inherit_id="website_sale.cart">
+        <xpath expr="//div[hasclass('oe_cart')]//a[hasclass('btn-secondary')]" position="attributes">
+            <attribute name="class" separator=" " add="as-btn"/>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_cart')]//a[hasclass('btn-primary')]" position="attributes">
+            <attribute name="class" separator=" " add="as-btn"/>
+        </xpath>
+    </template>
+
+    <template id="as_short_cart_summary" inherit_id="website_sale.short_cart_summary">
+        <xpath expr="//div[hasclass('card-body')]//a[hasclass('btn-secondary')]" position="attributes">
+            <attribute name="class" separator=" " add="as-btn"/>
+        </xpath>
+    </template>
+
+    <template id="as_payment" inherit_id="website_sale.payment">
+        <xpath expr="//t[@t-set='submit_class']" position="replace">
+            <t t-set="submit_class" t-value="'btn btn-primary as-btn'"/>
+        </xpath>
+        <xpath expr="//t[@t-set='back_button_class']" position="replace">
+            <t t-set="back_button_class" t-value="'btn btn-secondary as-btn'"/>
+        </xpath>
+    </template>
+
+    <template id="as_reduction_code" inherit_id="website_sale.reduction_code">
+        <xpath expr="//a[hasclass('show_coupon')]" position="attributes">
+            <attribute name="class" separator=" " add="as-btn"/>
+        </xpath>
+    </template>
+
+    <template id="as_sale_order_portal_template" inherit_id="sale.sale_order_portal_template">
+        <xpath expr="//li[hasclass('list-group-item')]//a[1][hasclass('btn-primary')]" position="attributes">
+            <attribute name="class" separator=" " add="as-btn"/>
+        </xpath>
+        <xpath expr="//li[hasclass('list-group-item')]//a[@id='o_sale_portal_paynow']" position="attributes">
+            <attribute name="class" separator=" " add="as-btn"/>
+        </xpath>
+        <xpath expr="//div[hasclass('o_download_pdf')]//a[hasclass('o_download_btn')]" position="attributes">
+            <attribute name="class" separator=" " add="as-btn"/>
+        </xpath>
+        <xpath expr="//div[hasclass('o_download_pdf')]//a[hasclass('o_print_btn')]" position="attributes">
+            <attribute name="class" separator=" " add="as-btn"/>
+        </xpath>
+        <xpath expr="//t[@t-if='sale_order.has_to_be_signed(True)']//a[hasclass('btn-primary')]" position="attributes">
+            <attribute name="class" separator=" " add="as-btn"/>
+        </xpath>
+        <xpath expr="//t[@t-if='sale_order.has_to_be_signed(True)']//a[hasclass('btn-secondary')]" position="attributes">
+            <attribute name="class" separator=" " add="as-btn"/>
+        </xpath>
+        <xpath expr="//t[@t-if='sale_order.has_to_be_signed(True)']//a[hasclass('btn-danger')]" position="attributes">
+            <attribute name="class" separator=" " add="as-btn"/>
+        </xpath>
+    </template>
+    <!-- End Buttons -->
+</odoo>

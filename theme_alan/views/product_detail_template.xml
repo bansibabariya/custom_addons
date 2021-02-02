@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Custom product Detail  -->
+    <template id="custom_product_detail_page" name="Custom Product Details" inherit_id="website_sale.product" priority="50">
+        <!-- Replace Website description -->
+        <xpath expr="//div[@t-field='product.website_description']" position="replace">
+            <div id="product_full_specification_accessory_n_alternative">
+                <t t-if="product">
+                    <t t-call="atharva_theme_base.as_html_content_tabs"/>
+                    <t t-call="theme_alan.as_alternative_and_accessory_product"/>
+                </t>
+            </div>
+        </xpath>
+
+        <!-- Replace product default description -->
+        <xpath expr="//hr[@t-if='product.description_sale']" position="replace"/>
+        <xpath expr="//p[@t-field='product.description_sale']" position="replace"/>
+
+        <!-- Add class in add to cart button -->
+        <xpath expr="//a[@id='add_to_cart']" position="attributes">
+            <attribute name="class" add="as-btn" separator=" "/>
+        </xpath>
+        <!-- Hide default breadcrumb row -->
+        <xpath expr="//div[hasclass('row')][1]" position="attributes">
+            <attribute name="class">row d-none</attribute>
+        </xpath>
+
+        <!-- Custom breadcrumb -->
+        <xpath expr="//section[@id='product_detail']" position="before">
+            <section class="product-breadcrumb">
+                <div class="container">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a t-att-href="keep(category=0)">Products</a>
+                        </li>
+                        <li t-if="category" class="breadcrumb-item">
+                            <a t-att-href="keep('/shop/category/%s' % slug(category), category=0)"
+                               t-field="category.name"/>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <span t-field="product.name"/>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </xpath>
+
+        <!-- Replace carousel -->
+        <xpath expr="//div[hasclass('row')]/div[hasclass('col-md-6')]" position="attributes">
+            <attribute name="class">col-lg-6 as-product-photos</attribute>
+            <!-- <div class="col-lg-6 as-product-photos" id="product_image_section">
+                <t t-call="website_sale.shop_product_carousel"/>
+            </div> -->
+        </xpath>
+
+        <!-- Change class for product_details -->
+        <xpath expr="//div[@id='product_details']" position="attributes">
+            <attribute name="class">col-lg-6 as-product-single-info</attribute>
+        </xpath>
+
+        <!-- Product Description -->
+        <xpath expr="//h1[@t-field='product.name']" position="after">
+            <div class="o_not_editable">
+                <p t-field="product.description_sale" class="as-pro-desc"/>
+            </div>
+        </xpath>
+
+        <!-- product rating -->
+        <xpath expr="//div[@id='product_details']/h1" position="after">
+            <t t-if="request.website.viewref('website_sale.product_comment').active">
+            <div t-set="rating_avg_val" t-value="round(product.sudo().rating_get_stats().get('avg') / 1 * 100) / 100" />
+            <div class="prod_rating">
+                <t t-set="curr_rate" t-value="0" />
+                <t t-set="half_flag" t-value="0" />
+                <t t-foreach="range(0, 5)" t-as="each_rate">
+                    <t t-set="curr_rate" t-value="curr_rate + 1" />
+                    <t t-if="curr_rate &lt;= int(rating_avg_val // 1)">
+                        <i class="fa fa-star" />
+                    </t>
+                    <t t-else="">
+                        <t t-if="rating_avg_val % 1 > 0.01 and half_flag == 0">
+                            <i class="fa fa-star-half-o" />
+                            <t t-set="half_flag" t-value="1" />
+                        </t>
+                        <t t-else="">
+                            <i class="fa fa-star-o" />
+                        </t>
+                    </t>
+                </t>
+                <span t-esc="str(rating_avg_val) + ' / 5'" />
+            </div>
+            </t>
+        </xpath>
+        <!-- Product Brand detail -->
+        <xpath expr="//div[@id='product_details']/hr" position="after">
+            <t t-if="request.website.viewref('theme_alan.as_product_brand_container').active">
+                <t t-call="theme_alan.as_product_brand_container"/>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[hasclass('row')][2]"
+               position="attributes">
+            <attribute name="class">row as-product-detail-row</attribute>
+        </xpath>
+        <!-- product sticky-->
+        <xpath expr="//div[hasclass('as-product-detail-row')]" position="after">
+            <t t-set="sticky_product_details" t-value="request.website.viewref('theme_alan.as_stick_product_detail').active"/>
+            <t t-if="sticky_product_details">
+                <t t-call="theme_alan.as_stick_product_detail"/>
+            </t>
+        </xpath>
+    </template>
+
+
+    <template id="as_product_attributes_body" name="Product Attributes Table Extended As" inherit_id="website_sale_comparison.product_attributes_body">
+        <xpath expr="//section[@id='product_full_spec']" position="replace"/>
+    </template>
+
+
+     <template id="as_alternative_and_accessory_product" name="Related Products">
+        <div class="recommended_product_slider_main container">
+            <div class="row">
+                <t t-if="request.website.viewref('website_sale.recommended_products').active">
+                <div class="col-lg-6 as-alternative-product" t-if="product.alternative_product_ids">
+                    <div class="seaction-head">
+                        <h3 class="">Alternative Products</h3>
+                    </div>
+                    <div class="owl-carousel" id="as_alternative">
+                        <t t-foreach="product.alternative_product_ids" t-as="alt_product">
+                            <div class="as-alt-product">
+                                <t t-set="combination_info" t-value="alt_product._get_combination_info()"/>
+                                <t t-set="product_variant" t-value="alt_product.env['product.product'].browse(combination_info['product_id'])"/>
+                                <div class="pro-img" t-if="product_variant" t-field="product_variant.image_512" t-options="{'widget': 'image', 'qweb_img_responsive': False, 'class': 'o_alternative_product' }" />
+                                <div class="pro-img" t-else="" t-field="alt_product.image_512" t-options="{'widget': 'image', 'qweb_img_responsive': False, 'class': 'o_alternative_product' }" />
+                                <div class="pro-info">
+                                    <h6>
+                                        <a t-att-href="alt_product.website_url" style="display: block">
+                                            <span t-att-title="alt_product.name" t-field="alt_product.name" class="o_text_overflow" style="display: block;" />
+                                        </a>
+                                    </h6>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+                </t>
+            </div>
+        </div>
+    </template>
+
+    <template id="accessories_products" name="Accessory Products" inherit_id="theme_alan.as_alternative_and_accessory_product" customize_show="True" active="True">
+        <xpath expr="//div[hasclass('row')]" position="inside">
+        <!--****** Accesories Products ******-->
+            <div class="col-lg-6 as-accessory-product" t-if="product.accessory_product_ids">
+                <div class="seaction-head">
+                    <h3>Accessory Products</h3>
+                </div>
+                <div class="accessory_product owl-carousel" id="as_accessory_product">
+                    <t t-foreach="product.accessory_product_ids" t-as="ace_product">
+                        <div class="as-alt-product">
+                            <div class="pro-img" t-field="ace_product.image_512" t-options="{'widget': 'image', 'qweb_img_responsive': False, 'class': 'o_accessory_product' }" />
+                            <div class="pro-info">
+                                <h6>
+                                    <a t-att-href="ace_product.website_url" style="display: block">
+                                        <span t-att-title="ace_product.name" t-field="ace_product.name" class="o_text_overflow" style="display: block;" />
+                                    </a>
+                                </h6>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Product page brand block -->
+    <template id="as_product_brand_container">
+        <t t-if="product.product_brand_id.logo or product.product_brand_id.brand_description">
+            <div class="as-pd-brand" t-if="product.product_brand_id and product.product_brand_id.website_id.id == request.website.id or not product.product_brand_id.website_id.id">
+                <div class="as-pd-brand-logo" t-if="product.product_brand_id.logo"
+                     t-field="product.product_brand_id.logo"
+                     t-options="{'widget': 'image','class':'te_product_brand_img'}"/>
+                <div class="as-pd-brand-desc">
+                    <p t-if="product.product_brand_id.brand_description"
+                       t-field="product.product_brand_id.brand_description"/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Product Rating Replace -->
+    <template id="as_product_comment" inherit_id="website_sale.product_comment">
+        <xpath expr="//div[hasclass('o_shop_discussion_rating')]" position="replace">
+        </xpath>
+    </template>
+    <!--Remove Default Alternative Products item -->
+    <template id='as_recommended_products' inherit_id="website_sale.recommended_products" name="Alternative Products">
+        <xpath expr="//div[@t-if='product.alternative_product_ids']" position="replace"/>
+    </template>
+      <!-- Product add to cart sticky block -->
+    <template id="as_stick_product_detail">
+        <t t-if="product">
+            <div class="as-product-sticky-cart as_prod_sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6 left">
+                            <div class="media">
+                                <div class="prod_img">
+                                    <img t-att-src="'/web/image/product.template/%s/image_256' % product.id"
+                                         class="img img-fluid rounded" alt="Product Image"/>
+                                </div>
+                                <div class="media-body">
+                                    <h6 itemprop="name" t-field="product.name" class="te_product_name"/>
+                                    <t t-call="website_sale.product_price"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 right">
+                            <div class="as_add_cart">
+                                <form t-if="product._is_add_to_cart_possible()" action="/shop/cart/update" method="POST">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <div class="js_product js_main_product">
+                                        <t t-placeholder="select">
+                                            <input type="hidden" class="product_id" name="product_id" t-att-value="product_variant.id"/>
+                                            <input type="hidden" class="product_template_id" name="product_template_id" t-att-value="product.id"/>
+                                        </t>
+                                        <t t-set="buy_now_show"
+                                           t-value="request.website.viewref('website_sale.product_buy_now').active"/>
+                                        <a role="button" id="add_to_cart"
+                                           class="as-btn as-btn-theme a-submit" href="#">
+                                            <i class="fa fa-shopping-cart"/>
+                                            <span>Add to Cart</span>
+                                        </a>
+                                        <t t-if="buy_now_show">
+                                            <a role="button" id="buy_now"
+                                               class="as-btn as-btn-dark"
+                                               href="#">
+                                                <i class="fa fa-bolt"/>
+                                                <span>Buy Now</span>
+                                            </a>
+                                        </t>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
+

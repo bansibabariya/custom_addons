@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="dynamic_snippets" name="Dynamic snippet" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_effect']/div[hasclass('o_panel_body')]" position="inside">
+            <t t-snippet="atharva_theme_base.blog_slider" t-thumbnail="/atharva_theme_base/static/src/img/snippets_thumbs/blogs.png"/>
+        </xpath>
+    </template>
+</odoo>

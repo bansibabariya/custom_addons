@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="get_product_brands_template" name="All Brand" inherit_id="atharva_theme_base.as_product_brands">
+        <xpath expr="//section[hasclass('as_product_brands')]" position="inside">
+            <t t-call="website.layout">
+                <div class="as-brand-page">
+                    <div class="as-bp-brand-details">
+                        <div class="container">
+                            <div class="media">
+                                <div class="br-img">
+                                    <span itemprop="image" t-field="brand.logo" t-options="{'widget':'image', 'resize':'300x300', 'alt-field':'brand.name'}"/>
+                                </div>
+                                <div class="media-body">
+                                    <h3 t-field="brand.name"/>
+                                    <t t-if="brand.brand_description">
+                                        <p t-field="brand.brand_description"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="oe_structure mt16 brand-description" itemprop="description" t-field="brand.description"/>
+                    <div class="as-brand-product-list">
+                        <div class="container">
+                            <div class="row">
+                                <t t-as="product" t-foreach="products">
+                                    <div class="col-6 col-md-4 col-lg-3">
+                                        <div class="as-brand-product">
+                                            <div class="pro-img">
+                                                <a t-att-href="'/shop/product/%s' % slug(product)">
+                                                    <span t-field="product.image_1920" t-options="{'widget': 'image', 'preview_image': 'image_1024' if product_image_big else 'image_512'}"/>
+                                                </a>
+                                            </div>
+                                            <div class="pro-info">
+                                                <h6>
+                                                    <a t-att-href="'/shop/product/%s' % slug(product)">
+                                                        <t t-esc="product.name"/>
+                                                    </a>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                                <t t-if="not products">
+                                    <div class="text-center text-muted oe_structure">
+                                        <h3>No products in this brand ...</h3>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>
