@@ -3,3 +3,12 @@
     padding-bottom: 0 !important;
     text-align: left !important;
 }
+
+@media (min-width: 992px)
+{
+header .navbar .dropdown-menu {
+    max-height: 100vh !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+}
