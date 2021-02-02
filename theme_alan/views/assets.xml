@@ -31,6 +31,7 @@
             <link rel="stylesheet" type="text/scss" href="/theme_alan/static/src/scss/base.scss"/>
             <link rel="stylesheet" type="text/scss" href="/theme_alan/static/src/scss/button.scss"/>
             <link rel="stylesheet" type="text/scss" href="/theme_alan/static/src/scss/snippets.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_alan/static/src/scss/custom.scss"/>
             <link rel="stylesheet" type="text/scss" href="/theme_alan/static/src/scss/blog.scss"/>
             <link rel="stylesheet" type="text/scss" href="/theme_alan/static/src/scss/effect.scss"/>
             <link rel="stylesheet" type="text/scss" href="/theme_alan/static/src/scss/mega-menu.scss"/>
