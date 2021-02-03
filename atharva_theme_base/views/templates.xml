@@ -192,4 +192,889 @@
             </div>
         </t>
     </template>
+
+<!--            <template id="template_location_inherit" inherit_id="website_event.template_location">-->
+<!--                <xpath expr="." position="inside">-->
+<!--                    <section class="section p-0 mb32">-->
+<!--                                                        <div class="container">-->
+<!--                                                            <div class="row">-->
+<!--                                                                <div class="col-lg-12">-->
+<!--                                                                    <div class="tab-style-2">-->
+<!--                                                                        <ul class="nav nav-tabs" role="tablist">-->
+<!--                                                                            <li class="nav-item">-->
+<!--                                                                                <a class="nav-link active o_default_snippet_text"-->
+<!--                                                                                   id="nav_tabs_link_01"-->
+<!--                                                                                   data-toggle="tab"-->
+<!--                                                                                   href="#nav_tabs_content_01"-->
+<!--                                                                                   role="tab"-->
+<!--                                                                                   aria-controls="nav_tabs_content_01"-->
+<!--                                                                                   aria-selected="true">Öffentliches Seminar</a>-->
+<!--                                                                            </li>-->
+<!--                                                                            <li class="nav-item">-->
+<!--                                                                                <a class="nav-link o_default_snippet_text"-->
+<!--                                                                                   id="nav_tabs_link_02"-->
+<!--                                                                                   data-toggle="tab"-->
+<!--                                                                                   href="#nav_tabs_content_02"-->
+<!--                                                                                   role="tab"-->
+<!--                                                                                   aria-controls="nav_tabs_content_02"-->
+<!--                                                                                   aria-selected="false">Firmen Seminar</a>-->
+<!--                                                                            </li>-->
+<!--                                                                            <li class="nav-item">-->
+<!--                                                                                <a class="nav-link o_default_snippet_text"-->
+<!--                                                                                   id="nav_tabs_link_03"-->
+<!--                                                                                   data-toggle="tab"-->
+<!--                                                                                   href="#nav_tabs_content_03"-->
+<!--                                                                                   role="tab"-->
+<!--                                                                                   aria-controls="nav_tabs_content_03"-->
+<!--                                                                                   aria-selected="false">Online Webinar</a>-->
+<!--                                                                            </li>-->
+<!--                                                                        </ul>-->
+<!--                                                                        <div class="tab-content">-->
+<!--                                                                            <div class="tab-pane fade show active"-->
+<!--                                                                                 id="nav_tabs_content_01"-->
+<!--                                                                                 role="tabpanel"-->
+<!--                                                                                 aria-labelledby="nav_tabs_link_01">-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Dauer-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                                        <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            2 Tage, ca. 6h/Tag-->
+<!--                                                                                        </h6>-->
+<!--                                                                                                            <h6 class="text-black">-->
+<!--                                                                                            1.Tag: 10:00 Uhr, weitere ab 09:00 Uhr-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Preis-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            € 1.260,00 zzgl. MwSt.-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Sprache-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            Deutsch - bei Firmenseminaren ist auch Englisch möglich-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Seminarunterlagen-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            Dokumentation auf Datenträger / Download-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Teilnahmezertifikat-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            ja, selbstverständlich-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Barriere freier Zugang-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            an den meisten Standorten verfügbar-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Verpflegung-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            Kalt- / Warmgetränke, Mittagessen (wahlweise vegetarisch)-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Support-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            3 Anrufe im Seminarpreis enthalten-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Methoden-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            Vortrag, Demonstration, praktische Übungen am System-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Seminararten-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            Mit Trainer vor Ort: Öffentlich oder Inhaus - Alternativ als Webinar bestellbar-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Durchführungsgarantie-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                                        <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            ja, ab 2 Teilnehmern, max. 8 Teilnehmer,<a-->
+<!--                                                                                                href="#" class="internal-link" style="color: #5ba0e2;"> Details</a>-->
+<!--                                                                                        </h6>-->
+<!--                                                                                                            <h6 class="text-black">-->
+<!--                                                                                            1.Tag: 10:00 Uhr, weitere ab 09:00 Uhr-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                            </div>-->
+<!--                                                                            <div class="tab-pane fade"-->
+<!--                                                                                 id="nav_tabs_content_02"-->
+<!--                                                                                 role="tabpanel"-->
+<!--                                                                                 aria-labelledby="nav_tabs_link_02">-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Dauer-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                                        <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            2 Tage, ca. 6h/Tag-->
+<!--                                                                                        </h6>-->
+<!--                                                                                                            <h6 class="text-black">-->
+<!--                                                                                            1.Tag: 10:00 Uhr, weitere ab 09:00 Uhr-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Preis-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            € 1.260,00 zzgl. MwSt.-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Sprache-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            Deutsch - bei Firmenseminaren ist auch Englisch möglich-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Seminarunterlagen-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            Dokumentation auf Datenträger / Download-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Teilnahmezertifikat-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            ja, selbstverständlich-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Barriere freier Zugang-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            an den meisten Standorten verfügbar-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Verpflegung-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            Kalt- / Warmgetränke, Mittagessen (wahlweise vegetarisch)-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Support-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            3 Anrufe im Seminarpreis enthalten-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Methoden-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            Vortrag, Demonstration, praktische Übungen am System-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Seminararten-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            Mit Trainer vor Ort: Öffentlich oder Inhaus - Alternativ als Webinar bestellbar-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Durchführungsgarantie-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                                        <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            ja, ab 2 Teilnehmern, max. 8 Teilnehmer,<a-->
+<!--                                                                                                href="#" style="color: #5ba0e2;" class="internal-link"> Details</a>-->
+<!--                                                                                        </h6>-->
+<!--                                                                                                            <h6 class="text-black">-->
+<!--                                                                                            1.Tag: 10:00 Uhr, weitere ab 09:00 Uhr-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                            </div>-->
+<!--                                                                            <div class="tab-pane fade"-->
+<!--                                                                                 id="nav_tabs_content_03"-->
+<!--                                                                                 role="tabpanel"-->
+<!--                                                                                 aria-labelledby="nav_tabs_link_03">-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Dauer-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                                        <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            2 Tage, ca. 6h/Tag-->
+<!--                                                                                        </h6>-->
+<!--                                                                                                            <h6 class="text-black">-->
+<!--                                                                                            1.Tag: 10:00 Uhr, weitere ab 09:00 Uhr-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Preis-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            € 1.260,00 zzgl. MwSt.-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Sprache-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            Deutsch - bei Firmenseminaren ist auch Englisch möglich-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Seminarunterlagen-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            Dokumentation auf Datenträger / Download-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Teilnahmezertifikat-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            ja, selbstverständlich-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Barriere freier Zugang-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            an den meisten Standorten verfügbar-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Verpflegung-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            Kalt- / Warmgetränke, Mittagessen (wahlweise vegetarisch)-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Support-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            3 Anrufe im Seminarpreis enthalten-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Methoden-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            Vortrag, Demonstration, praktische Übungen am System-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Seminararten-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                    <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            Mit Trainer vor Ort: Öffentlich oder Inhaus - Alternativ als Webinar bestellbar-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                                <div class="row pt8">-->
+<!--                                                                                    <div class="col-lg-3">-->
+<!--                                                                                        <h6 class="font-weight-bold text-black">-->
+<!--                                                                                            Durchführungsgarantie-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                                        <div class="col-lg-9">-->
+<!--                                                                                        <h6 class="text-black">-->
+<!--                                                                                            ja, ab 2 Teilnehmern, max. 8 Teilnehmer,<a-->
+<!--                                                                                                href="#" class="internal-link" style="color: #5ba0e2;"> Details</a>-->
+<!--                                                                                        </h6>-->
+<!--                                                                                                            <h6 class="text-black">-->
+<!--                                                                                            1.Tag: 10:00 Uhr, weitere ab 09:00 Uhr-->
+<!--                                                                                        </h6>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                            </div>-->
+<!--                                                                        </div>-->
+<!--                                                                    </div>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </section>-->
+<!--                </xpath>-->
+<!--            </template>-->
+
+
+    <template id="website_event.template_location">
+        <t t-call="website_event.layout">
+            <div class="oe_structure" id="oe_structure_website_event_location_1"/>
+            <section class="pt32 pb32">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="o_page_header mb-3">Event Location</h1>
+                            <h4 class="mb-3" t-field="event.address_id" t-options='{
+                            "widget": "contact",
+                            "fields": ["name"],
+                        }'/>
+                            <div class="mb-3" t-field="event.address_id" t-options='{
+                            "widget": "contact",
+                            "fields": ["address"],
+                            "no_marker": True
+                        }'/>
+                            <div class="mb-3" t-field="event.address_id" t-options='{
+                            "widget": "contact",
+                            "fields": ["phone", "mobile", "email"],
+                            "no_marker": True
+                        }'/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="oe_structure" id="oe_structure_website_event_location_2"/>
+            <section class="section p-0 mb32">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="tab-style-2">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active o_default_snippet_text"
+                                           id="nav_tabs_link_01"
+                                           data-toggle="tab"
+                                           href="#nav_tabs_content_01"
+                                           role="tab"
+                                           aria-controls="nav_tabs_content_01"
+                                           aria-selected="true">Öffentliches Seminar <t t-esc="event.name"/>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link o_default_snippet_text"
+                                           id="nav_tabs_link_02"
+                                           data-toggle="tab"
+                                           href="#nav_tabs_content_02"
+                                           role="tab"
+                                           aria-controls="nav_tabs_content_02"
+                                           aria-selected="false">Firmen Seminar
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link o_default_snippet_text"
+                                           id="nav_tabs_link_03"
+                                           data-toggle="tab"
+                                           href="#nav_tabs_content_03"
+                                           role="tab"
+                                           aria-controls="nav_tabs_content_03"
+                                           aria-selected="false">Online Webinar
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active"
+                                         id="nav_tabs_content_01"
+                                         role="tabpanel"
+                                         aria-labelledby="nav_tabs_link_01">
+                                        <div class="row pt8">
+                                            <div class="col-lg-2">
+                                                <h6 class="font-weight-bold text-black">
+                                                    Dauer
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Preis
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Sprache
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Seminarunterlagen
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Teilnahmezertifikat
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Barriere freier Zugang
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Verpflegung
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Support
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Methoden
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Seminararten
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Durchführungsgarantie
+                                                </h6>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <h6 class="text-black">
+                                                    1.Tag: 10:00 Uhr, weitere ab 09:00 Uhr
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   € 1.260,00 zzgl. MwSt.
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   Deutsch - bei Firmenseminaren ist auch Englisch möglich
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   Dokumentation auf Datenträger / Download
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   ja, selbstverständlich
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   an den meisten Standorten verfügbar
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                  Kalt- / Warmgetränke, Mittagessen (wahlweise vegetarisch)
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   3 Anrufe im Seminarpreis enthalten
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   Vortrag, Demonstration, praktische Übungen am System
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                  Mit Trainer vor Ort: Öffentlich oder Inhaus
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   ja, ab 2 Teilnehmern, max. 8 Teilnehmer,
+                                                    <a
+                                                            href="#" style="color: #5ba0e2;" class="internal-link">
+                                                        Details
+                                                    </a>
+                                                </h6>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <form>
+                                                    <div class="form-group">
+                                                <select class="form-control" style="height: 300px;" multiple="multiple">
+                                                    <t t-foreach="event.state_ids" t-as="state_id">
+                                                        <option value="state_id"><t t-esc="state_id.name"/></option>
+                                                    </t>
+                                                </select>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <form>
+                                                    <t t-foreach="event.event_date_ids" t-as="event_date_id">
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input"
+                                                               id="exampleCheck1"/>
+                                                        <label class="form-check-label" for="exampleCheck1"><t t-esc="event_date_id.date"/>
+                                                        </label>
+                                                    </div>
+                                                    </t>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade"
+                                         id="nav_tabs_content_02"
+                                         role="tabpanel"
+                                         aria-labelledby="nav_tabs_link_02">
+                                        <div class="row pt8">
+                                            <div class="col-lg-2">
+                                                <h6 class="font-weight-bold text-black">
+                                                    Dauer
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Preis
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Sprache
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Seminarunterlagen
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Teilnahmezertifikat
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Barriere freier Zugang
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Verpflegung
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Support
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Methoden
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Seminararten
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Durchführungsgarantie
+                                                </h6>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <h6 class="text-black">
+                                                    1.Tag: 10:00 Uhr, weitere ab 09:00 Uhr
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   € 1.260,00 zzgl. MwSt.
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   Deutsch - bei Firmenseminaren ist auch Englisch möglich
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   Dokumentation auf Datenträger / Download
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   ja, selbstverständlich
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   an den meisten Standorten verfügbar
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                  Kalt- / Warmgetränke, Mittagessen (wahlweise vegetarisch)
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   3 Anrufe im Seminarpreis enthalten
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   Vortrag, Demonstration, praktische Übungen am System
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                  Mit Trainer vor Ort: Öffentlich oder Inhaus
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   ja, ab 2 Teilnehmern, max. 8 Teilnehmer,
+                                                    <a
+                                                            href="#" style="color: #5ba0e2;" class="internal-link">
+                                                        Details
+                                                    </a>
+                                                </h6>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <form>
+                                                    <div class="form-group">
+                                                <select class="form-control" style="height: 300px;" multiple="multiple">
+                                                    <t t-foreach="event.state_ids" t-as="state_id">
+                                                        <option value="state_id"><t t-esc="state_id.name"/></option>
+                                                    </t>
+                                                </select>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <form>
+                                                    <t t-foreach="event.event_date_ids" t-as="event_date_id">
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input"
+                                                               id="exampleCheck1"/>
+                                                        <label class="form-check-label" for="exampleCheck1"><t t-esc="event_date_id.date"/>
+                                                        </label>
+                                                    </div>
+                                                    </t>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade"
+                                         id="nav_tabs_content_03"
+                                         role="tabpanel"
+                                         aria-labelledby="nav_tabs_link_03">
+                                        <div class="row pt8">
+                                            <div class="col-lg-2">
+                                                <h6 class="font-weight-bold text-black">
+                                                    Dauer
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Preis
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Sprache
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Seminarunterlagen
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Teilnahmezertifikat
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Barriere freier Zugang
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Verpflegung
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Support
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Methoden
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Seminararten
+                                                </h6>
+                                                <h6 class="font-weight-bold text-black pt8">
+                                                    Durchführungsgarantie
+                                                </h6>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <h6 class="text-black">
+                                                    1.Tag: 10:00 Uhr, weitere ab 09:00 Uhr
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   € 1.260,00 zzgl. MwSt.
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   Deutsch - bei Firmenseminaren ist auch Englisch möglich
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   Dokumentation auf Datenträger / Download
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   ja, selbstverständlich
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   an den meisten Standorten verfügbar
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                  Kalt- / Warmgetränke, Mittagessen (wahlweise vegetarisch)
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   3 Anrufe im Seminarpreis enthalten
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   Vortrag, Demonstration, praktische Übungen am System
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                  Mit Trainer vor Ort: Öffentlich oder Inhaus
+                                                </h6>
+                                                <h6 class="text-black pt8">
+                                                   ja, ab 2 Teilnehmern, max. 8 Teilnehmer,
+                                                    <a
+                                                            href="#" style="color: #5ba0e2;" class="internal-link">
+                                                        Details
+                                                    </a>
+                                                </h6>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <form>
+                                                    <div class="form-group">
+                                                <select class="form-control" style="height: 300px;" multiple="multiple">
+                                                    <t t-foreach="event.state_ids" t-as="state_id">
+                                                        <option value="state_id"><t t-esc="state_id.name"/></option>
+                                                    </t>
+                                                </select>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <form>
+                                                    <t t-foreach="event.event_date_ids" t-as="event_date_id">
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input"
+                                                               id="exampleCheck1"/>
+                                                        <label class="form-check-label" for="exampleCheck1"><t t-esc="event_date_id.date"/>
+                                                        </label>
+                                                    </div>
+                                                    </t>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </t>
+</template>
+
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="event_event_form_view" model="ir.ui.view">
+        <field name="name">event.event.form.view</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="state_ids" widget="many2many_tags"/>
+                <field name="event_date_ids">
+                    <tree editable="bottom">
+                        <field name="date"/>
+                    </tree>
+                </field>
+            </xpath>
+
+        </field>
+    </record>
 </odoo>

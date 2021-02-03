@@ -20,6 +20,7 @@ access_cat_slider_options,cat_slider.options,model_cat_slider_options,,1,1,1,1
 access_slider_cat_collection.configure,slider_cat.collection.configure,model_slider_cat_collection_configure,,1,1,1,1
 access_slider_temp_cat,slider_temp.cat,model_slider_temp_cat,,1,1,1,1
 access_faq,model_faq,model_faq,,1,1,1,1
+access_event_date,model_event_date,model_event_date,,1,1,1,1
 access_res_service,model_res_service,model_res_service,,1,1,1,1
 access_megamenu_content,megamenu.content,model_megamenu_content,,1,1,1,1
 access_megamenu_links,megamenu.links,model_megamenu_links,,1,1,1,1
