@@ -26,7 +26,7 @@
         'views/megamenu_views.xml',
         'views/megamenu_template.xml',
         'views/faqs_views.xml',
-        # 'views/res_service_views.xml',
+        'views/res_service_views.xml',
         'views/product_varient_slider_layout_view.xml',
         'views/category_slider_layout_view.xml',
         'views/product_sticker_view.xml',
